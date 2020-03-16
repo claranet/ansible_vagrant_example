@@ -1,3 +1,8 @@
+=begin
+Copyright 2020 OutScope Solutions. All rights reserved.
+Distributed under the MIT License found in the LICENSE file 
+=end
+
 # Read config file
 current_dir    = File.dirname(File.expand_path(__FILE__))
 configs        = YAML.load_file("#{current_dir}/config.yml")

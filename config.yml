@@ -1,3 +1,6 @@
+# Copyright 2020 OutScope Solutions. All rights reserved.
+# Distributed under the MIT License found in the LICENSE file
+
 ---
 configs:
   virtual_machine:

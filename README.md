@@ -1,5 +1,7 @@
 # Ansible Vagrant example
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 This is a very simple project providing an example of how to test Ansible playbooks with dynamic virtual machines assuming the controller and managed hosts roles.
 
 More information:
