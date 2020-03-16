@@ -1,0 +1,47 @@
+---
+- name: Playing around with Inclusions
+  hosts: webserver
+  vars:
+    rule: http
+  tasks:
+    - name: Install the httpd package
+      yum:
+        name: httpd
+        state: latest
+
+    - name: Start the httpd service
+      service:
+        name: httpd
+        state: started
+    
+    - name: Install the firewall
+      yum:
+        name: firewalld
+        state: latest
+
+    - name: Start the firewall
+      service:
+        name: firewalld
+        state: started
+        enabled: true
+
+    - name: Open the port for {{ rule }}
+      firewalld:
+        service: "{{ rule }}"
+        immediate: true
+        permanent: true
+        state: enabled
+
+    - name: Create index.html
+      copy:
+        content: "{{ ansible_fqdn }} has been customized using Ansible on the {{ ansible_date_time.date }}\n"
+        dest: /var/www/html/index.html
+
+    - name: Check that a page returns a status 200 and fail if the word Ansible is not in the page contents
+      local_action:
+        module: uri
+        url: "http://{{ ansible_eth1.ipv4.address }}"
+        return_content: yes
+      register: this
+      failed_when: "'Ansible' not in this.content"
+...
