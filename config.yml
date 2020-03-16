@@ -1,0 +1,16 @@
+---
+configs:
+  virtual_machine:
+    server_image_name: 'generic/centos8'
+    controller_image_name: 'generic/centos8'
+  ansible_src_path: 'src'
+  managed_node_count: 2
+  network:
+    domain: 'outscope.com'
+    server_base_name: 'server'
+    controller_name: 'ansible'
+    controller_ip: '192.168.50.4'
+    server_subnet: '192.168.50'
+    http_host_port_base: 8000
+    http_guest_port: 80
+...
