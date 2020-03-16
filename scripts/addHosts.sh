@@ -1,4 +1,6 @@
 #!/bin/bash
+# Copyright 2020 OutScope Solutions. All rights reserved.
+# Distributed under the MIT License found in the LICENSE file
 
 show_usage() {
 	echo -e "Usage: $0 NEW_HOSTS"
